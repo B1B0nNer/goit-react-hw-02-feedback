@@ -1,28 +1,39 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import { Table } from './Statistics.styled';
 
-export default function Statistics({
-  good,
-  bad,
-  neutral,
-  total,
-  positivePercentage,
-}) {
+const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
   return (
-    <>
-      <p>Good: {good}</p>
-      <p>Bad: {bad}</p>
-      <p>Neutral: {neutral}</p>
-      <p>Total: {total}</p>
-      <p>Positive: {positivePercentage}</p>
-    </>
+    <Table>
+      <tr>
+        <td>Good:</td>
+        <td>{good}</td>
+      </tr>
+      <tr>
+        <td>Neutral:</td>
+        <td>{neutral}</td>
+      </tr>
+      <tr>
+        <td>Bad:</td>
+        <td>{bad}</td>
+      </tr>
+      <tr>
+        <td>Total:</td>
+        <td>{total}</td>
+      </tr>
+      <tr>
+        <td>Positive feedback:</td>
+        <td>{positivePercentage}%</td>
+      </tr>
+    </Table>
   );
-}
+};
 
 Statistics.propTypes = {
-  good: PropTypes.number.isRequired,
   bad: PropTypes.number.isRequired,
+  good: PropTypes.number.isRequired,
   neutral: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.number.isRequired,
   total: PropTypes.number.isRequired,
-  positivePercentage: PropTypes.string.isRequired,
 };
+
+export default Statistics;

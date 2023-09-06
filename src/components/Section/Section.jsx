@@ -1,16 +1,18 @@
-import React from 'react';
+import { Container, Title } from './Section.styled';
 import PropTypes from 'prop-types';
 
-export default function Section({ title, children }) {
+const Section = ({ title, children }) => {
   return (
-    <section>
-      <h2>{title}</h2>
+    <Container>
+      <Title>{title}</Title>
       {children}
-    </section>
+    </Container>
   );
-}
+};
 
 Section.propTypes = {
+  children: PropTypes.node.isRequired,
   title: PropTypes.string.isRequired,
-  children: PropTypes.node,
 };
+
+export default Section;
